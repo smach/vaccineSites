@@ -19,9 +19,9 @@ sites <- readxl::read_xlsx("geocoded_sites.xlsx")
 
 The Baker Administration's new centralized Covid-19 vaccine pre-registration system will dole out appointments to eligible resident based on "the availability of appointments at mass vaccination sites nearby," according to [the state's website](https://www.mass.gov/news/baker-polito-administration-announces-preregistration-system-for-mass-vaccination-locations-to). But how the system defines "nearby" will make an enormous difference in whether the system is fair.
 
-"Residents will only be matched with the site that’s closest to them," the [Boston Globe reported on March 10](https://www.bostonglobe.com/2021/03/10/nation/what-know-about-states-new-preregistration-system-covid-19-vaccine-appointments/). If true, there would be vast discrepancies between a site like Gillette Stadium, which is closest to approximately 400,000 adults age 18+, and the Natick Mall, which is closest to _more than 900,000_. 
+"Residents will only be matched with the site that’s closest to them," the [Boston Globe reported on March 10](https://www.bostonglobe.com/2021/03/10/nation/what-know-about-states-new-preregistration-system-covid-19-vaccine-appointments/). If true, there would be vast discrepancies between a site like Gillette Stadium, which is closest to approximately 450,000 adults age 18+, and the Natick Mall, which is closest to more than 900,000. 
 
-Under such rules, the state would have to significantly alter vaccine distributions to make sure there were similar doses _per capita_ and not per site, in order to not heavily favor those living near Gillette and penalize residents of MetroWest and Boston.
+Under such rules, the state would have to significantly alter vaccine distributions to make sure there were similar doses _per capita_ and not per site. Otherwise, those living near sites like Gillette and the Doubletree Hotel in Danvers would have much greater access to appointments than residents of MetroWest and Boston. Or, the system would need to offer Gillette/Danvers/Dartmouth appointments to people who live closer to sites in Boston or Natick.
 
 ```{r}
 adult_population %>%
@@ -36,7 +36,7 @@ adult_population %>%
 
 Gillette had received considerably more vaccine than the Natick Mall in recent weeks, despite having the state's smallest nearby adult population. However, under the prior system, at least some residents in MetroWest, Boston, and elsewhere could choose to travel to Gillette. 
 
-The new vaccine pre-registration process did not allow people to say which sites they'd be willing to travel to. It's unclear if/how many people in metro Boston outside the "closest-to-Gillette" zone will be offered appointments at Gillette.
+The new vaccine pre-registration process did not allow people to say which sites they'd be willing to travel to. It's unclear if/how many people in metro Boston outside the "closest-to-Gillette" zone will be offered appointments at Gillette or Danvers.
 
 Below is a map of closest mass vaccination site for each city and town in Massachusetts.
 
@@ -108,6 +108,9 @@ lengthMenu = c(25, 50, 100)
 ```
 
 You can see code for this analysis at [https://github.com/smach/vaccineSites](https://github.com/smach/distance). The code was written in R and used a number of packages including [tidycensus](https://walker-data.com/tidycensus/) to get population data, [leaflet](http://rstudio.github.io/leaflet/legends.html) for mapping, and [gmapsdistance](https://github.com/rodazuero/gmapsdistance) to access the Google Maps API for distance calculations.
+
+Those familiar with R: The R Markdown document generating this page is at [https://github.com/smach/vaccineSites/blob/master/vaccine_distance.Rmd](https://github.com/smach/vaccineSites/blob/master/vaccine_distance.Rmd). The R script generating some of the data analysis for the R Markdown document is at [https://github.com/smach/vaccineSites/blob/master/distance.R](https://github.com/smach/vaccineSites/blob/master/distance.R).
+
 
 
 
